@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Empresa{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% if empresa == null or empresa|length == 0 %}
+            <h1 class="col-12">No s'ha trobat aquesta empresa</h1>
+        {% else %}
+            <dl class="dl-horizontal row">
+                <dt class="col-2">Nom</dt>
+                <dd class="col-10">{{ empresa.nom }}</dd>
+                <dt class="col-2">Correu</dt>
+                <dd class="col-10">{{ empresa.correu }}</dd>
+                <dt class="col-2">Tipus</dt>
+                <dd class="col-10">{{ empresa.tipus  }}</dd>
+                <dt class="col-2">Ofertes</dt>
+                <dd class="col-10">
+                    <ul class="list-group">
+                        {% for oferta in empresa.ofertas %}
+                            <li class="list-group-item"><a
+                                        href="{{ path('detall_oferta', {'id' : oferta.id}) }}">{{ oferta.titol }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </dd>
+            </dl>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

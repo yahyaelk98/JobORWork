@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ofertes{% endblock %}
+
+{% block body %}
+
+    <div class="container text-center">
+        <h1 class="col-6">Empreses</h1>
+        <ul class="list-group col-6">
+            {% for empresa in empreses %}
+                <li class="list-group-item"><a
+                            href="{{ path('detall_empresa', {'id' : empresa.id}) }}">{{ empresa.nom }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -31,6 +31,16 @@ class Candidato
      */
     private $telefon;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $estudis;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Oferta", inversedBy="candidats")
+     */
+    private $oferta;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +78,30 @@ class Candidato
     public function setTelefon(int $telefon): self
     {
         $this->telefon = $telefon;
+
+        return $this;
+    }
+
+    public function getEstudis(): ?string
+    {
+        return $this->estudis;
+    }
+
+    public function setEstudis(string $estudis): self
+    {
+        $this->estudis = $estudis;
+
+        return $this;
+    }
+
+    public function getOferta(): ?Oferta
+    {
+        return $this->oferta;
+    }
+
+    public function setOferta(?Oferta $oferta): self
+    {
+        $this->oferta = $oferta;
 
         return $this;
     }

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Oferta{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+    {% if oferta == null or oferta|length == 0 %}
+        <h1>No s'ha trobat aquesta oferta</h1>
+    {% else %}
+        <dl class="dl-horizontal row">
+            <dt class="col-2">Títol</dt>
+            <dd class="col-10">{{ oferta.titol }}</dd>
+            <dt class="col-2">Descripcio</dt>
+            <dd class="col-10">{{ oferta.descripcio }}</dd>
+            <dt class="col-2">Data publicació</dt>
+            <dd class="col-10">{{ oferta.dataPub|date("d/m/Y")  }}</dd>
+            <dt class="col-2">Empresa</dt>
+            <dd class="col-10"><a href="{{ path('detall_empresa', {'id' : oferta.empresa.id}) }}">{{ oferta.empresa.nom }}</a></dd>
+        </dl>
+    {% endif %}
+    </div>
+
+
+{% endblock %}

@@ -14,19 +14,24 @@ class AppFixtures extends Fixture
     {
 
         for ($i = 0; $i < 20; $i++) {
-            $oferta = new Oferta();
-            $oferta->setDescripcio('descripcio' . $i);
-            $oferta->setDataPub(new \DateTime());
-
             $empresa = new Empresa();
             $empresa->setLogo('logo' . $i);
             $empresa->setTipus('tipus' . $i);
             $empresa->setCorreu('correu' . $i);
+            $empresa->setNom('nom' . $i);
+
+            $oferta = new Oferta();
+            $oferta->setDescripcio('descripcio' . $i);
+            $oferta->setDataPub(new \DateTime());
+            $oferta->setTitol('titol' . $i);
+            $oferta->setEmpresa($empresa);
 
             $candidato = new Candidato();
             $candidato->setNom('nom' . $i);
             $candidato->setCognoms('cognoms' . $i);
             $candidato->setTelefon(mt_rand(600000000, 699999999));
+            $candidato->setEstudis('estudis' . $i);
+            $candidato->setOferta($oferta);
 
             $manager->persist($oferta);
             $manager->persist($empresa);
