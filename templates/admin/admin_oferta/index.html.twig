@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administració d'ofertes{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr class="bg-primary text-white">
+                <th colspan="6"><h3>Administració d'ofertes</h3></th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <th>Títol</th>
+                <th>Descripció</th>
+                <th>Data</th>
+                <th>Empresa</th>
+                <th>
+                    <a class="btn btn-success" href="{{ path('admin_oferta_afeg') }}">Afegir</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for oferta in ofertes %}
+                <tr>
+                    <td>{{ oferta.id }}</td>
+                    <td>{{ oferta.titol }}</td>
+                    <td>{{ oferta.descripcio }}</td>
+                    <td>{{ oferta.dataPub|date("d/m/Y") }}</td>
+                    <td>{{ oferta.empresa.nom }}</td>
+                    <td>
+                        <a class="btn btn-secondary" href="{{ path('admin_oferta_modif', {'id' : oferta.id}) }}">Modificar</a>
+                        <a class="btn btn-danger" href="{{ path('admin_oferta_elim', {'id' : oferta.id}) }}">Eliminar</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
