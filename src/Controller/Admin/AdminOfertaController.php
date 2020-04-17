@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminOfertaController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/adminOferta", name="adminOferta")
      */
     public function index()
     {
@@ -42,7 +42,7 @@ class AdminOfertaController extends AbstractController
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($oferta);
             $manager->flush();
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('adminOferta');
         }
 
         return $this->render('admin/admin_oferta/modif_oferta.html.twig', [
@@ -59,7 +59,7 @@ class AdminOfertaController extends AbstractController
         $manager = $this->getDoctrine()->getManager();
         $manager->remove($oferta);
         $manager->flush();
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('adminOferta');
     }
 
     /**
@@ -90,7 +90,7 @@ class AdminOfertaController extends AbstractController
 
             $manager->persist($oferta);
             $manager->flush();
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('adminOferta');
         }
 
         return $this->render('admin/admin_oferta/afegir_oferta.html.twig', [

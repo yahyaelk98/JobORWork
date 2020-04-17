@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administració d'empreses{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr class="bg-primary text-white">
+                <th colspan="6"><h3>Administració d'empreses</h3></th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Tipus</th>
+                <th>Correu</th>
+                <th>Logo</th>
+                <th>
+                    <a class="btn btn-success" href="{{ path('admin_empresa_afeg') }}">Afegir</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for empresa in empreses %}
+                <tr>
+                    <td>{{ empresa.id }}</td>
+                    <td>{{ empresa.nom }}</td>
+                    <td>{{ empresa.tipus }}</td>
+                    <td>{{ empresa.correu }}</td>
+                    <td>{{ empresa.logo }}</td>
+                    <td>
+                        <a class="btn btn-secondary" href="{{ path('admin_empresa_modif', {'id' : empresa.id}) }}">Modificar</a>
+                        <a class="btn btn-danger" href="{{ path('admin_empresa_elim', {'id' : empresa.id}) }}">Eliminar</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -9,7 +9,14 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="{{ path('ofertes') }}">Home <span class="sr-only"></span></a>
                 <a class="nav-item nav-link" href="{{ path('empreses') }}">Empreses</a>
-                <a class="nav-item nav-link" href="{{ path('admin') }}">Admin</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowna"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdowna">
+                        <a class="dropdown-item" href="{{ path('adminOferta') }}">Ofertes</a>
+                        <a class="dropdown-item" href="{{ path('adminEmpresa') }}">Empreses</a>
+                    </div>
+                </li>
             </div>
         </div>
     </div>

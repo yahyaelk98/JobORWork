@@ -39,7 +39,7 @@ class Empresa
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Oferta", mappedBy="empresa")
+     * @ORM\OneToMany(targetEntity="App\Entity\Oferta", mappedBy="empresa", cascade={"remove"})
      */
     private $ofertas;
 
